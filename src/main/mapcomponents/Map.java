@@ -111,21 +111,29 @@ public class Map {
             for(int y = hallway.getStart().getY(); y <= hallway.getEnd().getY(); y++) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 3);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 1);
         } else if(hallway.getWest()){
             int constY = hallway.getStart().getY();
             for(int x = hallway.getStart().getX(); x <= hallway.getEnd().getX(); x++) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 4);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 2);
         } else if(hallway.getSouth()) {
             int constX = hallway.getStart().getX();
             for(int y = hallway.getStart().getY(); y >= hallway.getEnd().getY(); y--) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 1);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 3);
         } else if(hallway.getEast()) {
             int constY = hallway.getStart().getY();
             for(int x = hallway.getStart().getX(); x >= hallway.getEnd().getX(); x--) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 2);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 4);
         }
     }
 
@@ -136,14 +144,14 @@ public class Map {
         int constY = hallway.getStart().getY();
         boolean intersectsUp = false;
         for (int x = hallway.getStart().getX(); x <= hallway.getEnd().getX(); x++) {
-            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != 999999) {
+            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != -2) {
                 intersectsUp = true;
                 break;
             }
         }
         int constX = hallway.getEnd().getX();
         for (int y = hallway.getStart().getY(); y <= hallway.getEnd().getX(); y++) {
-            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != 999999) {
+            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != -2) {
                 intersectsUp = true;
                 break;
             }
@@ -155,6 +163,8 @@ public class Map {
             for (int y = hallway.getStart().getY(); y <= hallway.getEnd().getY(); y++) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 4);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 1);
         } else {
             constX = hallway.getStart().getX();
             constY = hallway.getEnd().getY();
@@ -164,6 +174,8 @@ public class Map {
             for (int x = hallway.getStart().getX(); x <= hallway.getEnd().getX(); x++) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 3);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 2);
         }
     }
 
@@ -175,14 +187,14 @@ public class Map {
         int constY = hallway.getStart().getY();
         boolean intersectsUp = false;
         for (int x = hallway.getStart().getX(); x >= hallway.getEnd().getX(); x--) {
-            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != 999999) {
+            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != -2) {
                 intersectsUp = true;
                 break;
             }
         }
         int constX = hallway.getEnd().getX();
         for (int y = hallway.getStart().getY(); y <= hallway.getEnd().getX(); y++) {
-            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != 999999) {
+            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != -2) {
                 intersectsUp = true;
                 break;
             }
@@ -194,6 +206,8 @@ public class Map {
             for (int y = hallway.getStart().getY(); y <= hallway.getEnd().getY(); y++) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 2);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 1);
         } else {
             constX = hallway.getStart().getX();
             constY = hallway.getEnd().getY();
@@ -203,6 +217,8 @@ public class Map {
             for (int x = hallway.getStart().getX(); x >= hallway.getEnd().getX(); x--) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 3);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 4);
         }
     }
 
@@ -214,14 +230,14 @@ public class Map {
         int constY = hallway.getStart().getY();
         boolean intersectsUp = false;
         for (int x = hallway.getStart().getX(); x <= hallway.getEnd().getX(); x++) {
-            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != 999999) {
+            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != -2) {
                 intersectsUp = true;
                 break;
             }
         }
         int constX = hallway.getEnd().getX();
         for (int y = hallway.getStart().getY(); y >= hallway.getEnd().getX(); y--) {
-            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != 999999) {
+            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != -2) {
                 intersectsUp = true;
                 break;
             }
@@ -233,6 +249,8 @@ public class Map {
             for (int y = hallway.getStart().getY(); y >= hallway.getEnd().getY(); y--) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 4);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 3);
         } else {
             constX = hallway.getStart().getX();
             constY = hallway.getEnd().getY();
@@ -242,6 +260,8 @@ public class Map {
             for (int x = hallway.getStart().getX(); x <= hallway.getEnd().getX(); x++) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 1);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 2);
         }
     }
 
@@ -253,14 +273,14 @@ public class Map {
         int constY = hallway.getStart().getY();
         boolean intersectsUp = false;
         for (int x = hallway.getStart().getX(); x >= hallway.getEnd().getX(); x--) {
-            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != 999999) {
+            if(occupied[constY][x] != -1 && occupied[constY][x] != idxS && occupied[constY][x] != idxE && occupied[constY][x] != -2) {
                 intersectsUp = true;
                 break;
             }
         }
         int constX = hallway.getEnd().getX();
         for (int y = hallway.getStart().getY(); y >= hallway.getEnd().getX(); y--) {
-            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != 999999) {
+            if(occupied[y][constX] != -1 && occupied[y][constX] != idxS && occupied[y][constX] != idxE && occupied[y][constX] != -2) {
                 intersectsUp = true;
                 break;
             }
@@ -272,6 +292,8 @@ public class Map {
             for (int y = hallway.getStart().getY(); y >= hallway.getEnd().getY(); y--) {
                 occupied[y][constX] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 2);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 3);
         } else {
             constX = hallway.getStart().getX();
             constY = hallway.getEnd().getY();
@@ -281,6 +303,8 @@ public class Map {
             for (int x = hallway.getStart().getX(); x >= hallway.getEnd().getX(); x--) {
                 occupied[constY][x] = -2;
             }
+            assignDoor(hallway.getStart().getX(), hallway.getStart().getY(), 1);
+            assignDoor(hallway.getEnd().getX(), hallway.getEnd().getY(), 4);
         }
     }
 
@@ -314,12 +338,53 @@ public class Map {
         }
     }
 
+    public void assignDoor(int x, int y, int doorLocation) {
+        switch (doorLocation) {
+            case 1:
+                if (occupied[y][x] == -2) {
+                    occupied[y][x] = -3;
+                } else if (occupied[y][x] == -4) {
+                    occupied[y][x] = -34;
+                } else if (occupied[y][x] == -6) {
+                    occupied[y][x] = -63;
+                }
+                break;
+            case 2:
+                if (occupied[y][x] == -2) {
+                    occupied[y][x] = -4;
+                } else if (occupied[y][x] == -3) {
+                    occupied[y][x] = -34;
+                } else if (occupied[y][x] == -5) {
+                    occupied[y][x] = -45;
+                }
+                break;
+            case 3:
+                if (occupied[y][x] == -2) {
+                    occupied[y][x] = -5;
+                } else if (occupied[y][x] == -4) {
+                    occupied[y][x] = -45;
+                } else if (occupied[y][x] == -6)  {
+                    occupied[y][x] = -56;
+                }
+                break;
+            default:
+                if (occupied[y][x] == -2) {
+                    occupied[y][x] = -6;
+                } else if (occupied[y][x] == -5) {
+                    occupied[y][x] = -56;
+                } else if (occupied[y][x] == -3) {
+                    occupied[y][x] = -63;
+                }
+        }
+
+    }
+
     //A function that prints out a map with room index numbers for testing purposes
     public void printOccupied() {
         for(int y = 0; y < getHeightWidth(); y++) {
             String printString = "";
             for(int x = 0; x < getHeightWidth(); x++) {
-                if (occupied[y][x] == -2) {
+                if (occupied[y][x] <= -2) {
                     printString += " OO";
                 } else if (occupied[y][x] >= 100) {
                     printString += occupied[y][x];

@@ -38,7 +38,6 @@ public class HomeFrame extends JFrame {
             mapPanel.setPreferredSize(new Dimension(1200, 1200));
             mapPanel.repaint();
             revalidate();
-            map.printOccupied();
         }
     }
 
